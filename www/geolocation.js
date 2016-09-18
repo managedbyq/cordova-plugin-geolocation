@@ -156,8 +156,6 @@ var geolocation = {
         argscheck.checkArgs('fFO', 'geolocation.getCurrentPosition', arguments);
         options = parseParameters(options);
 
-	alert('MODEBUG - HERE1');
-
         var id = utils.createUUID();
 
         // Tell device to get a position ASAP, and also retrieve a reference to the timeout timer generated in getCurrentPosition

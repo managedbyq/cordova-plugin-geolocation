@@ -56,6 +56,10 @@ public class Geolocation extends CordovaPlugin {
                 PermissionHelper.requestPermissions(this, 0, permissions);
             }
             return true;
+        } else if(action.equals("addWatch")) {
+            PluginResult r = new PluginResult(PluginResult.Status.OK, '1234');
+            context.sendPluginResult(r);
+            return true;
         }
         return false;
     }
