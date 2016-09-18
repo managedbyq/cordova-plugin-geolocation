@@ -60,9 +60,14 @@ public class Geolocation extends CordovaPlugin {
             PluginResult r = new PluginResult(PluginResult.Status.OK, "1234");
             context.sendPluginResult(r);
             return true;
+        } else if(action.equals("getLocation")) {
+            PluginResult r = new PluginResult(PluginResult.Status.OK, "5678");
+            context.sendPluginResult(r);
+            return true;
         }
+        
         return false;
-    }
+}
 
 
     public void onRequestPermissionResult(int requestCode, String[] permissions,
