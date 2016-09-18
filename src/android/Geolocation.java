@@ -56,16 +56,20 @@ public class Geolocation extends CordovaPlugin {
                 PermissionHelper.requestPermissions(this, 0, permissions);
             }
             return true;
-        } else if(action.equals("addWatch")) {
-            PluginResult r = new PluginResult(PluginResult.Status.OK, "1234");
+        } else if(action.equals("getLocation")) {
+            PluginResult r = new PluginResult(PluginResult.Status.OK, "getLocationID");
             context.sendPluginResult(r);
             return true;
-        } else if(action.equals("getLocation")) {
-            PluginResult r = new PluginResult(PluginResult.Status.OK, "5678");
+        } else if(action.equals("addWatch")) {
+            PluginResult r = new PluginResult(PluginResult.Status.OK, "addWatchID");
+            context.sendPluginResult(r);
+            return true;
+        } else if(action.equals("clearWatch")) {
+            PluginResult r = new PluginResult(PluginResult.Status.OK, "clearWatchID");
             context.sendPluginResult(r);
             return true;
         }
-        
+
         return false;
 }
 
