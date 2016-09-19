@@ -29,6 +29,7 @@ var pluginToNativeWatchMap = {};
 
 module.exports = {
     getCurrentPosition: function(success, error, args) {
+        alert('entering old getCurrentPosition JS')
         var win = function() {
           var geo = cordova.require('cordova/modulemapper').getOriginalSymbol(window, 'navigator.geolocation');
           geo.getCurrentPosition(success, error, args);
@@ -42,6 +43,7 @@ module.exports = {
     },
 
     watchPosition: function(success, error, args) {
+        alert('entering old watchPosition JS')
         var pluginWatchId = utils.createUUID();
 
         var win = function() {
@@ -60,6 +62,7 @@ module.exports = {
     },
 
     clearWatch: function(pluginWatchId) {
+        alert('entering old clearPosition JS')
         var win = function() {
             var nativeWatchId = pluginToNativeWatchMap[pluginWatchId];
             var geo = cordova.require('cordova/modulemapper').getOriginalSymbol(window, 'navigator.geolocation');
