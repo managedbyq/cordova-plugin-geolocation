@@ -77,6 +77,7 @@ var geolocation = {
    * @param {PositionOptions} options     The options for getting the position data. (OPTIONAL)
    */
     getCurrentPosition:function(successCallback, errorCallback, options) {
+        alert('entering getCurrentPosition JS')
         argscheck.checkArgs('fFO', 'geolocation.getCurrentPosition', arguments);
         options = parseParameters(options);
 
@@ -139,6 +140,7 @@ var geolocation = {
                 // always truthy before we call into native
                 timeoutTimer.timer = true;
             }
+            alert('calling native getLocation');
             exec(win, fail, "Geolocation", "getLocation", [options.enableHighAccuracy, options.maximumAge]);
         }
         return timeoutTimer;
@@ -190,6 +192,7 @@ var geolocation = {
             successCallback(pos);
         };
 
+        alert('calling native addWatch');
         exec(win, fail, "Geolocation", "addWatch", [id, options.enableHighAccuracy]);
 
         return id;
@@ -203,6 +206,7 @@ var geolocation = {
         if (id && timers[id] !== undefined) {
             clearTimeout(timers[id].timer);
             timers[id].timer = false;
+            alert('calling native clearWatch');
             exec(null, null, "Geolocation", "clearWatch", [id]);
         }
     }
